@@ -55,7 +55,6 @@ Log out the user and redirect to the landing page.
 ## Frontend  : React.js
 ## backend  : Node.js with Express.js
 ## Database : MongoDB
-## Authentication: JWT (JSON Web Tokens) for secure user authentication.
 ## Charts: Use Chart.js or Recharts for visualizing expense data.
 
  
