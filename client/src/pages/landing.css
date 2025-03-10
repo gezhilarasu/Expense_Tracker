@@ -1,0 +1,186 @@
+/* Navbar styling */
+.navbar {
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff7eb3, #ffbf69, #2ec4b6, #3a86ff); /* Multi-color Gradient */
+    display: flex;
+    padding: 0 15px;
+    position: relative;
+}
+
+.navbar h1 {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+h1{
+    margin-top: 10px;
+    margin-bottom:10px;
+
+
+}
+
+/* Menu icon (hidden on larger screens) */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+}
+
+/* Navigation links styling */
+.nav-links {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+}
+
+/* Regular links styling */
+.nav-links a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+/* Container */
+.landing-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: #f5f5f5;
+}
+/* Features List */
+.features-list {
+    margin-top: 20px;
+    list-style: none;  /* Removes the default bullet points */
+    padding: 0; /* Ensures no unwanted spacing */
+}
+
+.features-list li {
+    font-size: 18px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* Left Section - Text */
+.text-section {
+    width: 45%;
+    height: auto;
+}
+
+.text-section h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.text-section p {
+    font-size: 18px;
+    color: black;
+}
+
+/* Get Started Button */
+.get-started-btn {
+    text-decoration: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    background-color: #1ec656;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.get-started-btn-1 {
+    text-decoration: none;
+    margin-top: 2px;
+    margin-bottom:2px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    background-color: #1ec656;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.sign-btn{
+    text-decoration: none;
+}
+
+.get-started-btn:hover {
+    background-color: #13cb19;
+}
+
+/* Right Section - Image */
+.image-section {
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-section img {
+    width: 100%;
+    padding-top: 20px;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0 10px;
+    }
+  
+    /* Show the hamburger menu icon */
+    .menu-icon {
+        display: block;
+    }
+  
+    /* Hide nav-links by default and style as a vertical dropdown */
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+        position: absolute;
+        top: 60px; /* Adjust based on navbar height */
+        right: 10px;
+        background-color: #fff;
+        padding: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        display: none;
+        z-index: 1000;
+    }
+  
+    /* When active, display nav-links */
+    .nav-links.active {
+        display: flex;
+    }
+  
+    /* Reduce font-size for smaller screens */
+    .nav-links li {
+        font-size: 20px;
+    }
+  
+    /* Adjust landing container layout */
+    .landing-container {
+        flex-direction: column;
+        text-align: center;
+    }
+  
+    .text-section,
+    .image-section {
+        width: 100%;
+    }
+  
+    .image-section img {
+        width: 100%;
+    }
+}

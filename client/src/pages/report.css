@@ -1,0 +1,114 @@
+
+.report-content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    margin-left: 250px; /* Shift to avoid sidebar overlap */
+    transition: margin-left 0.3s ease-in-out;
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 10px;
+    background-color: #28a745;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.date-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.date-filters input {
+    margin-top: 50px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Expenses Table */
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.report-table th, .report-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.report-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.report-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+.download-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.download-btn:hover {
+    background-color: #218838;
+}
+
+/* Flexbox for Filters & Download Button */
+.filters-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .report-content {
+        margin-left: 0; /* Full width on smaller screens */
+    }
+
+    .filters-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .date-filters {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .report-table th, .report-table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .download-btn {
+        width: 100%;
+    }
+}

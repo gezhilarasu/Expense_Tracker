@@ -1,0 +1,141 @@
+
+.budget-content
+{
+  margin-left:250px;
+  padding-left:20px;
+
+}
+
+
+/* Button styles */
+.add-budget-btn {
+  
+
+
+
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 0;
+  transition: background 0.3s ease;
+}
+
+.add-budget-btn:hover {
+  background-color: #45a049;
+}
+
+/* Form styling */
+.main-form {
+  margin: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100;
+  margin-left:150px;
+  margin-right:150px;
+}
+
+.form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.budget-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.budget-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.budget-card:hover {
+  transform: scale(1.03);
+}
+
+.budget-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.budget-category {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.budget-amount {
+  font-size: 1rem;
+  color: #27ae60;
+  font-weight: bold;
+}
+.budget-amount_1
+{
+  color:black;
+}
+
+.budget-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+  border: none;
+  background: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.edit-btn:hover {
+  color: #f39c12;
+  transform: scale(1.2);
+}
+
+.delete-btn:hover {
+  color: #e74c3c;
+  transform: scale(1.2);
+}
+
+@media (max-width: 1024px) {
+  .budget-display {
+    flex-direction: column;
+    align-items: center;
+  }
+  .budget-content
+{
+  margin-left:0px;
+  padding-left:20px;
+
+}
+.menu-icon {
+  display: block;
+}
+
+  .budget-card {
+    width: 100%;
+  }
+  .main-form{
+    margin-left:0 ;
+    margin-right:0;
+  }
+}
