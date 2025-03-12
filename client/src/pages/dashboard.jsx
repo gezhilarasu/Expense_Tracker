@@ -11,7 +11,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js"; // Import necessary chart components
-import "./Dashboard.css";
+import "./dashboard.css";
 
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
