@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom"; // Import useLocation
-import "./Sidebar.css";
+import "./sidebar.css";
 
 const Sidebar = ({ isNavOpen, toggleNav, handleLogout }) => {
   const location = useLocation(); // Get current location
