@@ -181,8 +181,8 @@ const Budget = () => {
                 <span className="budget-amount"><span className="budget-amount_1">Balance</span> {budget.availableAmount}</span>
               </div>
               <div className="budget-actions">
-                <button className="edit-btn" onClick={() => handleEditBudget(budget)}>✏️</button>
-                <button className="delete-btn" onClick={() => handleDeleteBudget(budget._id)}>🗑️</button>
+                <button className="edits-btn" onClick={() => handleEditBudget(budget)}>✏️</button>
+                <button className="deletes-btn" onClick={() => handleDeleteBudget(budget._id)}>🗑️</button>
               </div>
             </div>
           ))}

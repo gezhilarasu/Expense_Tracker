@@ -6,8 +6,8 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     display:column;
     gap:10px;
-    margin-left: 150px;
-    margin-right:150px;
+    margin-left: 300px;
+    margin-right:300px;
 
   }
   
@@ -30,7 +30,7 @@
     border-radius: 5px;
   }
   
-  button {
+  .note-button {
     padding: 10px;
     font-size: 16px;
     color: white;
@@ -40,7 +40,7 @@
     cursor: pointer;
   }
   
-  button:hover {
+  .note-button:hover {
     background-color: #0056b3;
   }
   

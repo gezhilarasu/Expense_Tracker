@@ -110,7 +110,7 @@ const Notification = () => {
           onChange={(e) => setTime(e.target.value)}
           required
         />
-        <button onClick={handleSetNotification}>Set Notification</button>
+        <button class="note-button"onClick={handleSetNotification}>Set Notification</button>
       </div>
 
       <h3>Your Notifications</h3>
@@ -121,7 +121,7 @@ const Notification = () => {
           notifications.map((notification) => (
             <li key={notification._id}>
               <span>{notification.time}</span>
-              <button onClick={() => handleDeleteNotification(notification._id)}>Delete</button>
+              <button class="note-button" onClick={() => handleDeleteNotification(notification._id)}>Delete</button>
             </li>
           ))
         )}

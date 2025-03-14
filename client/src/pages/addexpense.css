@@ -55,7 +55,7 @@
 }
 
 .budget-category {
-    font-size: 18px;
+    font-size: 25px;
     font-weight: bold;
 }
 
@@ -125,8 +125,9 @@
 }
 
 .expense-table th, .expense-table td {
-    padding: 12px;
+    padding: 15px;
     text-align: left;
+    font-size:large;
     border-bottom: 1px solid #ddd;
 }
 
