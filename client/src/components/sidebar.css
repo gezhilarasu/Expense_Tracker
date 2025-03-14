@@ -54,22 +54,5 @@
     font-weight: bold;
     margin-top:200px;
   }
-  
-  
-  .sidebar .logout a:hover {
-    background: #c0392b;
-    color: #fff;
-  }
-  
-  /* Hide sidebar on small screens */
-  @media (max-width: 768px) {
-    .sidebar {
-      transform: translateX(-100%);
-      z-index: 1000;
-    }
-  
-    .sidebar.active {
-      transform: translateX(0);
-    }
-  }
+
   
