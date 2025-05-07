@@ -1,4 +1,4 @@
-/* login.css */
+/* send-otp.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -8,19 +8,19 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.login-container {
+.send-otp-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                    url('https://images.unsplash.com/photo-1579621970795-87facc2f976d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+                    url('https://images.unsplash.com/photo-1565514020179-026b92b2d70d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
   background-size: cover;
   background-position: center;
   padding: 20px;
 }
 
-.login-card {
+.send-otp-card {
   width: 100%;
   max-width: 450px;
   padding: 40px;
@@ -31,24 +31,24 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.login-header {
+.send-otp-header {
   text-align: center;
   margin-bottom: 30px;
 }
 
-.login-header h1 {
+.send-otp-header h1 {
   color: #2e4057;
   font-weight: 600;
   margin-bottom: 10px;
   font-size: 28px;
 }
 
-.login-subtitle {
+.send-otp-subtitle {
   color: #048a81;
   font-size: 16px;
 }
 
-.login-form {
+.send-otp-form {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -81,7 +81,7 @@
   box-shadow: 0 0 0 2px rgba(4, 138, 129, 0.2);
 }
 
-.login-button {
+.send-otp-button {
   padding: 14px;
   background-color: #048a81;
   color: white;
@@ -91,11 +91,31 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 10px;
 }
 
-.login-button:hover {
+.send-otp-button:hover {
   background-color: #036c65;
+}
+
+.send-otp-button:disabled {
+  background-color: #85c7c2;
+  cursor: not-allowed;
+}
+
+.back-to-login-button {
+  padding: 12px;
+  background-color: transparent;
+  color: #2e4057;
+  border: 1px solid #2e4057;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-to-login-button:hover {
+  background-color: #f5f5f5;
 }
 
 .error-message {
@@ -103,39 +123,28 @@
   color: #d32f2f;
   padding: 12px;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: center;
   font-size: 14px;
 }
 
-.forgot-password-container {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: -10px;
-}
-
-.forgot-password-link {
-  background: none;
-  border: none;
-  color: #048a81;
-  text-decoration: underline;
-  cursor: pointer;
+.success-message {
+  background-color: #e6f7ee;
+  color: #108548;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  text-align: center;
   font-size: 14px;
-  padding: 0;
-}
-
-.forgot-password-link:hover {
-  color: #036c65;
-  text-decoration: none;
 }
 
 /* Responsive adjustments */
 @media (max-width: 480px) {
-  .login-card {
+  .send-otp-card {
     padding: 20px;
   }
   
-  .login-header h1 {
+  .send-otp-header h1 {
     font-size: 24px;
   }
   

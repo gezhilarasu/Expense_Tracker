@@ -1,114 +1,217 @@
-
+/* Report Section */
 .report-content {
     flex: 1;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
-    margin-left: 250px; /* Shift to avoid sidebar overlap */
+    margin-left: 250px; /* Default margin to avoid sidebar overlap */
     transition: margin-left 0.3s ease-in-out;
-}
-
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
-    padding: 10px;
-    background-color: #28a745;
-}
-
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.date-filters {
+    background: linear-gradient(135deg, #e3f2fd, #eaffea); /* Light Blue & Soft Mint */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Date Filters */
+  .date-filters {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-    gap: 10px;
-}
-
-.date-filters input {
-    margin-top: 50px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Expenses Table */
-.report-table {
+    margin-bottom: 18px;
+    gap: 12px;
+    padding: 12px;
+    background: linear-gradient(135deg, #ffffff, #dfffe2); /* Soft Mint */
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 128, 128, 0.15);
+  }
+  
+  /* Input Fields */
+  .date-filters input {
+    padding: 10px;
+    border: 1px solid #009688;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #ffffff;
+    transition: border 0.3s ease-in-out;
+  }
+  
+  /* Input Focus */
+  .date-filters input:focus {
+    border-color: #008080;
+    box-shadow: 0 0 6px rgba(0, 128, 128, 0.3);
+    outline: none;
+  }
+  
+  /* Expenses Table */
+  .report-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-    background: white;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+    margin-top: 25px;
+    background: #ffffff;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
     overflow: hidden;
-}
-
-.report-table th, .report-table td {
-    padding: 12px;
+  }
+  
+  /* Table Header & Cells */
+  .report-table th, .report-table td {
+    padding: 14px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-}
-
-.report-table th {
-    background-color: #007bff;
+  }
+  
+  /* Table Header */
+  .report-table th {
+    background: linear-gradient(135deg, #00bcd4, #80d8ff); /* Light Blue Gradient */
     color: white;
-}
-
-.report-table tr:hover {
-    background-color: #f1f1f1;
-}
-
-
-.download-btn {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
+    font-weight: bold;
+  }
+  
+  /* Table Row Hover */
+  .report-table tr:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Download Button */
+  .download-btn {
+    padding: 12px 24px;
     border: none;
-    cursor: pointer;
+    background: linear-gradient(135deg, #00b894, #aaf0d1); /* Teal & Soft Mint */
+    color: white;
+    border-radius: 8px;
     font-size: 16px;
-    border-radius: 5px;
-}
-
-.download-btn:hover {
-    background-color: #218838;
-}
-
-/* Flexbox for Filters & Download Button */
-.filters-container {
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  /* Button Hover */
+  .download-btn:hover {
+    background: linear-gradient(135deg, #009688, #85e0be);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 128, 128, 0.3);
+  }
+  
+  /* Filters & Download Button Container */
+  .filters-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-    gap: 10px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+    margin-bottom: 18px;
+    gap: 12px;
+  }
+  
+  /* Menu Icon for Sidebar Toggle */
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Hidden by default on large screens */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .menu-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Responsive Styles - Improved to match sidebar behavior */
+  @media (max-width: 1024px) {
     .report-content {
-        margin-left: 0; /* Full width on smaller screens */
+      margin-left: 0; /* Remove margin when sidebar collapses */
     }
-
+  
+    .menu-icon {
+      display: block; /* Show menu icon on smaller screens */
+    }
+  
+    /* Removed blur/opacity effect when sidebar is active */
+  }
+  
+  @media (max-width: 768px) {
+    .report-content {
+      padding: 15px;
+      border-radius: 8px;
+    }
+  
     .filters-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
     }
-
+  
     .date-filters {
-        flex-direction: column;
-        gap: 5px;
+      flex-direction: column;
+      gap: 8px;
+      padding: 10px;
     }
-
+  
+    .date-filters input {
+      width: 100%;
+      font-size: 14px;
+    }
+  
+    .report-table {
+      margin-top: 15px;
+      overflow-x: auto; /* Enable horizontal scrolling for tables */
+      display: block; /* Needed for overflow to work */
+    }
+  
     .report-table th, .report-table td {
-        font-size: 14px;
-        padding: 8px;
+      font-size: 14px;
+      padding: 10px;
     }
-
+  
     .download-btn {
-        width: 100%;
+      width: 100%;
+      padding: 10px 20px;
     }
-}
+  }
+  
+  @media (max-width: 480px) {
+    .report-content {
+      padding: 10px;
+      border-radius: 6px;
+    }
+  
+    .filters-container {
+      gap: 8px;
+    }
+  
+    .date-filters {
+      padding: 8px;
+    }
+  
+    .date-filters input {
+      padding: 8px;
+      font-size: 13px;
+    }
+  
+    .report-table th, .report-table td {
+      font-size: 13px;
+      padding: 8px;
+    }
+  
+    .download-btn {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
+  /* Sidebar styles (to complement the report styles) */
+  .sidebar {
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Sidebar toggle behavior for responsive design */
+  @media (max-width: 1024px) {
+    .sidebar {
+      transform: translateX(-100%); /* Hide sidebar by default on smaller screens */
+    }
+  
+    .sidebar.active {
+      transform: translateX(0); /* Show sidebar when active class is applied */
+    }
+  }

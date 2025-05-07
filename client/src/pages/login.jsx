@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -22,9 +22,7 @@ function Login() {
 
       if (response.ok) {
         // ✅ Store user ID in localStorage
-        localStorage.setItem("userId", data.user.id);
-        localStorage.setItem("userName", data.user.name);
-
+        localStorage.setItem("token", data.token);
         navigate("/dashboard"); // Redirect after login
       } else {
         setError(data.message);
@@ -35,31 +33,62 @@ function Login() {
     }
   };
 
+  const handleForgotPassword = () => {
+    navigate("/send-otp"); // Navigate to the send-otp page
+  };
+
   return (
     <div className="login-container">
-      <h2>Sign In to Your Account</h2>
-      {error && <p className="error-message">{error}</p>}
-      <form onSubmit={handleSubmit} className="login-form">
-        <div className="form-field">
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+      <div className="login-card">
+        <div className="login-header">
+          <h1>Sign In to Your Account</h1>
+          <p className="login-subtitle">Track your expenses, save money</p>
         </div>
-        <div className="form-field">
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="login-btn">Sign In</button>
-      </form>
+        
+        {error && <div className="error-message">{error}</div>}
+        
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="form-control"
+              placeholder="Enter your email"
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="form-control"
+              placeholder="Enter your password"
+            />
+          </div>
+          
+          <div className="forgot-password-container">
+            <button 
+              type="button" 
+              className="forgot-password-link" 
+              onClick={handleForgotPassword}
+            >
+              Forgot Password?
+            </button>
+          </div>
+          
+          <button type="submit" className="login-button">
+            Sign In
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

@@ -54,16 +54,37 @@ const Dashboard = () => {
     navigate("/");
   };
 
-  // Fetch budgets and calculate totals
+  // Updated fetchBudgets function to match backend response format
   useEffect(() => {
-    const userId = localStorage.getItem("userId");
+    const fetchBudgets = async () => {
+      const token = localStorage.getItem("token");
 
-    if (userId) {
-      fetch(`http://localhost:5000/api/budget/user-budgets/${userId}`)
-        .then((res) => res.json())
-        .then((data) => setBudgets(data))
-        .catch((err) => console.error("Error fetching budgets:", err));
-    }
+      try {
+        const response = await fetch("http://localhost:5000/api/budget/getbudget", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const data = await response.json();
+
+        // The backend now returns the budgets array directly
+        if (Array.isArray(data)) {
+          setBudgets(data);
+        } else if (data.length === 0) {
+          // Handle empty array case
+          setBudgets([]);
+        } else {
+          console.error("Unexpected response format:", data);
+        }
+      } catch (err) {
+        console.error("Error fetching budgets:", err);
+      }
+    };
+
+    fetchBudgets();
   }, []);
 
   const totalBudgets = budgets.length;
@@ -76,7 +97,7 @@ const Dashboard = () => {
     labels: ["Total Budget", "Total Remaining", "Total Spent"],
     datasets: [
       {
-        label: "Amount in $",
+        label: "Amount in ₹",
         data: [totalBudgetAmount, totalRemainingAmount, totalSpentAmount],
         backgroundColor: ["#28a745", "#007bff", "#dc3545"], // Green for Total Budget, Blue for Remaining, Red for Spent
         borderColor: ["#28a745", "#007bff", "#dc3545"],
@@ -111,22 +132,24 @@ const Dashboard = () => {
         </header>
 
         {/* Budget Overview Cards */}
-        <section className="budget-overview">
-          <div className="green-card">
-            <h3>Total Budgets</h3>
-            <p>{totalBudgets}</p>
-          </div>
+        {/* Budget Overview Cards */}
+<section className="budgetOverview-section">
+  <div className="budgetOverview-card">
+    <h3>Total Budgets</h3>
+    <p>{totalBudgets}</p>
+  </div>
 
-          <div className="green-card">
-            <h3>Total Budget Amount</h3>
-            <p>₹ {totalBudgetAmount.toFixed(2)}</p>
-          </div>
+  <div className="budgetOverview-card">
+    <h3>Total Budget Amount</h3>
+    <p>₹ {totalBudgetAmount.toFixed(2)}</p>
+  </div>
 
-          <div className="green-card">
-            <h3>Total Remaining Amount</h3>
-            <p>₹ {totalRemainingAmount.toFixed(2)}</p>
-          </div>
-        </section>
+  <div className="budgetOverview-card">
+    <h3>Total Remaining Amount</h3>
+    <p>₹ {totalRemainingAmount.toFixed(2)}</p>
+  </div>
+</section>
+
 
         {/* Expense Spend vs Remaining Budget Chart (Overall) */}
         <section className="chart-section">
@@ -154,7 +177,7 @@ const Dashboard = () => {
 
             return (
               <div key={index} className="budget-chart-container">
-                <h4>Budget: {budget.category || `Budget ₹{index + 1}`}</h4>
+                <h4>Budget: {budget.category || `Budget ${index + 1}`}</h4>
                 <Bar data={individualChartData} options={chartOptions} />
               </div>
             );

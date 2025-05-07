@@ -3,8 +3,9 @@ const mongoose = require("mongoose");
 const budgetSchema = new mongoose.Schema(
   {
     userId: {
-      type: String,
-      required: true, // Ensures every budget entry is associated with a user
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User", // Reference to User model
+      required: true,
     },
     category: {
       type: String,
@@ -17,7 +18,7 @@ const budgetSchema = new mongoose.Schema(
     availableAmount: {
       type: Number,
       required: true,
-    }
+    },
   },
   { timestamps: true }
 );
