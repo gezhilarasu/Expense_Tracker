@@ -13,7 +13,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173",
     "https://exptr.vercel.app", // local and deployed frontend
-    "https://expense-tracker-x5i9.onrender.com" // (optional, if you want to allow backend self-origin)
+    "https://expense-tracker-6y1a.vercel.app" // (optional, if you want to allow backend self-origin)
   ],
   credentials: true,
 }));
