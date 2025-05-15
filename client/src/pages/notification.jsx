@@ -52,7 +52,7 @@ const Notification = () => {
     setLoading(true);
     try {
       console.log("Fetching notifications with token:", token);
-      const response = await fetch("http://localhost:5000/api/notification/getNotifications", {
+      const response = await fetch("https://expense-tracker-x5i9.onrender.com/api/notification/getNotifications", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -98,7 +98,7 @@ const Notification = () => {
     
     try {
       console.log("Setting notification:", { email, time });
-      const response = await fetch("http://localhost:5000/api/notification/addNotification", {
+      const response = await fetch("https://expense-tracker-x5i9.onrender.com/api/notification/addNotification", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -140,7 +140,7 @@ const Notification = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/notification/deleteNotification/${notificationId}`, {
+      const response = await fetch(`https://expense-tracker-x5i9.onrender.com/api/notification/deleteNotification/${notificationId}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`

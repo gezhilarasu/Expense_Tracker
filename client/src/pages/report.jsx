@@ -58,7 +58,7 @@ function Report() {
         const token = localStorage.getItem("token");
         if (!token) return;
 
-        fetch("http://localhost:5000/api/expense/getExpense", {
+        fetch("https://expense-tracker-x5i9.onrender.com/api/expense/getExpense", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

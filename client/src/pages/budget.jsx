@@ -27,7 +27,7 @@ const Budget = () => {
   }, []);
 
   const fetchBudgets = () => {
-    fetch("http://localhost:5000/api/budget/getbudget", {
+    fetch("https://expense-tracker-x5i9.onrender.com/api/budget/getbudget", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const Budget = () => {
     const newBudget = { category, amount: Number(amount) };
 
     try {
-      const response = await fetch("http://localhost:5000/api/budget/add", {
+      const response = await fetch("https://expense-tracker-x5i9.onrender.com/api/budget/add", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
@@ -73,7 +73,7 @@ const Budget = () => {
     if (!window.confirm("Are you sure you want to delete this budget?")) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/budget/delete/${id}`, {
+      const response = await fetch(`https://expense-tracker-x5i9.onrender.com/api/budget/delete/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -105,7 +105,7 @@ const Budget = () => {
     if (!editingBudget) return;
   
     try {
-      const response = await fetch("http://localhost:5000/api/budget/update", {
+      const response = await fetch("https://expense-tracker-x5i9.onrender.com/api/budget/update", {
         method: "PUT",
         headers: { 
           "Content-Type": "application/json",

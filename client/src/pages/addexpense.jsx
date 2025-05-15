@@ -55,7 +55,7 @@ function Addexpense() {
 
     // Fetch budgets
     useEffect(() => {
-        fetch("http://localhost:5000/api/budget/getbudget", {
+        fetch("https://expense-tracker-x5i9.onrender.com/api/budget/getbudget", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -71,7 +71,7 @@ function Addexpense() {
     useEffect(() => {
         if (!token) return; // Changed from userId to token check since that's what you're using for auth
         
-        fetch("http://localhost:5000/api/expense/getExpense", {
+        fetch("https://expense-tracker-x5i9.onrender.com/api/expense/getExpense", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -130,7 +130,7 @@ function Addexpense() {
         };
 
         try {
-            const response = await fetch("http://localhost:5000/api/expense/addExpense", {
+            const response = await fetch("https://expense-tracker-x5i9.onrender.com/api/expense/addExpense", {
                 method: "POST",
                 headers: { 
                     "Content-Type": "application/json",

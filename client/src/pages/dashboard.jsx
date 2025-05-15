@@ -61,7 +61,7 @@ const Dashboard = () => {
       const token = localStorage.getItem("token");
 
       try {
-        const response = await fetch("http://localhost:5000/api/budget/getbudget", {
+        const response = await fetch("https://expense-tracker-x5i9.onrender.com/api/budget/getbudget", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

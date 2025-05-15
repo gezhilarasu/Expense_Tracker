@@ -36,7 +36,7 @@ function ResetPassword() {
     }
 
     try {
-      const response1 = await fetch("http://localhost:5000/api/auth/verify-otp", {
+      const response1 = await fetch("https://expense-tracker-x5i9.onrender.com/api/auth/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify({ email, created_otp: otp }), // Fix: use otp variable
@@ -45,7 +45,7 @@ function ResetPassword() {
       const data1 = await response1.json(); // Fix: get JSON from response
 
       if (response1.ok) { // Fix: use response1 instead of response
-        const response2 = await fetch("http://localhost:5000/api/auth/resetpassword", {
+        const response2 = await fetch("https://expense-tracker-x5i9.onrender.com/api/auth/resetpassword", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({ email, newpassword: newPassword }), // Fix: match backend parameter name

@@ -44,7 +44,7 @@ const SignupComplete = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/signup/complete', {
+      const response = await fetch('https://expense-tracker-x5i9.onrender.com/api/auth/signup/complete', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
