@@ -10,7 +10,11 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors({
-  origin: ["http://localhost:5173", "https://exptr.vercel.app"],
+  origin: [
+    "http://localhost:5173",
+    "https://exptr.vercel.app", // local and deployed frontend
+    "https://expense-tracker-x5i9.onrender.com" // (optional, if you want to allow backend self-origin)
+  ],
   credentials: true,
 }));
 
