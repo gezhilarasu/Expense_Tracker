@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "../components/sidebar";
 import { useNavigate } from "react-router-dom";
+import TokenExpiryCheck from "../pages/tokenexpirycheck"; // Import the token expiry check component
 
 import "./addexpense.css";
 
@@ -214,6 +215,9 @@ function Addexpense() {
     };
 
     return (
+        <> 
+        <TokenExpiryCheck />
+        
         <div className="add-container">
             <Sidebar isNavOpen={isNavOpen} toggleNav={toggleNav} handleLogout={handleLogout} />
             <main className="budget-content">
@@ -306,6 +310,7 @@ function Addexpense() {
                 </table>
             </main>
         </div>
+        </>
     );
 }
 

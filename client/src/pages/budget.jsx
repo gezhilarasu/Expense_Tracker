@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Sidebar from "../components/sidebar";
 import "./budget.css";
+import TokenExpiryCheck from "../pages/tokenexpirycheck"; // Import the token expiry check component
 
 const Budget = () => {
   const [category, setCategory] = useState("");
@@ -160,6 +161,9 @@ const Budget = () => {
   }, [isNavOpen]);
 
   return (
+    <>
+     <TokenExpiryCheck />
+    
     <div className="budget-container">
       <Sidebar isNavOpen={isNavOpen} toggleNav={toggleNav} handleLogout={handleLogout} />
 
@@ -237,6 +241,7 @@ const Budget = () => {
         </div>
       </main>
     </div>
+    </>
   );
 };
 

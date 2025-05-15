@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/sidebar"; // Import Sidebar
 import { Bar } from "react-chartjs-2"; // Import Chart.js bar chart component
+import TokenExpiryCheck from "../pages/tokenexpirycheck"; // Import the token expiry check component
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -118,6 +119,7 @@ const Dashboard = () => {
   };
 
   return (
+    <> <TokenExpiryCheck />
     <div className="dashboard-container">
       {/* Sidebar */}
       <Sidebar isNavOpen={isNavOpen} toggleNav={toggleNav} handleLogout={handleLogout} />
@@ -136,7 +138,7 @@ const Dashboard = () => {
 <section className="budgetOverview-section">
   <div className="budgetOverview-card">
     <h3>Total Budgets</h3>
-    <p>{totalBudgets}</p>
+    <p>₹ {totalBudgets}</p>
   </div>
 
   <div className="budgetOverview-card">
@@ -185,6 +187,7 @@ const Dashboard = () => {
         </section>
       </main>
     </div>
+    </>
   );
 };
 

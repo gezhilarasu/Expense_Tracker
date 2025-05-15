@@ -23,6 +23,8 @@ function Login() {
       if (response.ok) {
         // ✅ Store user ID in localStorage
         localStorage.setItem("token", data.token);
+        const expiresIn = 1 * 60 * 60 * 1000; // 1 hour in milliseconds
+        localStorage.setItem('expiresAt', Date.now() + expiresIn);
         navigate("/dashboard"); // Redirect after login
       } else {
         setError(data.message);

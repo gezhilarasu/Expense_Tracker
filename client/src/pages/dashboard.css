@@ -32,6 +32,10 @@
 .menu-icon:hover {
   transform: scale(1.1);
 }
+p{
+  text-align: center;
+  color:linear-gradient(135deg, #2c3e50, #45a247);
+}
 
 /* Sidebar */
 .sidebar {
@@ -67,11 +71,12 @@
 
 /* Cards */
 .budgetOverview-card {
-  background: linear-gradient(135deg, #004c8c, #a8ff9e);
+  background: linear-gradient(135deg, #2173b6, #a8ff9e);
   padding: 35px;
   border-radius: 16px;
   transition: transform 0.3s ease-in-out;
 }
+
 
 /* Chart Section */
 .chart-section {
