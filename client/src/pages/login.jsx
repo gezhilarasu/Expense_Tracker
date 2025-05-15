@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 
-// Use environment variable for API base URL
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
-
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +12,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+      const response = await fetch("https://expense-tracker-x5i9.onrender.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
