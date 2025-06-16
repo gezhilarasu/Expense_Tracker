@@ -126,6 +126,18 @@
     box-shadow: 0 6px 12px rgba(0, 128, 128, 0.3);
 }
 
+
+.delete_expense-btn {
+    
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
 /* Expenses Table */
 .expense-table {
     width: 100%;

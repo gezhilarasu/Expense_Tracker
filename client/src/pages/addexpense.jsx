@@ -213,7 +213,53 @@ function Addexpense() {
             return "Invalid Date";
         }
     };
+const handledelete = async (expenseId) => {
+    try {
+        const response = await fetch(`https://expense-tracker-x5i9.onrender.com/api/expense/deleteExpense/${expenseId}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        });
 
+        if (response.status === 204) {
+            console.warn("No content returned from server");
+            return;
+        }
+
+        const data = await response.json();
+
+        if (response.ok) {
+            const updatedBudget = data.updatedBudget;
+
+            // Remove deleted expense
+            setExpenses(prev => prev.filter(exp => exp._id !== expenseId));
+            setFilteredExpenses(prev => prev.filter(exp => exp._id !== expenseId));
+
+            // Update budget
+            if (updatedBudget) {
+                setBudgets(prevBudgets =>
+                    prevBudgets.map(b =>
+                        b._id === updatedBudget._id ? updatedBudget : b
+                    )
+                );
+
+                // Also update selectedBudget if it's affected
+                setSelectedBudget(prev =>
+                    prev && prev._id === updatedBudget._id ? updatedBudget : prev
+                );
+            }
+
+        } else {
+            alert(data.error || "Failed to delete expense");
+        }
+
+    } catch (error) {
+        console.error("Error deleting expense:", error);
+        alert("Error deleting expense. Please try again.");
+    }
+};
     return (
         <> 
         <TokenExpiryCheck />
@@ -290,23 +336,32 @@ function Addexpense() {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredExpenses && filteredExpenses.length > 0 ? (
-                            filteredExpenses.map((expense, index) => (
-                                <tr key={expense._id || index}>
-                                    <td>{formatDate(expense.date)}</td>
-                                    <td>{expense.category}</td>
-                                    <td>{expense.amount}</td>
-                                    <td>{expense.description}</td>
-                                </tr>
-                            ))
-                        ) : (
-                            <tr>
-                                <td colSpan="4" style={{ textAlign: "center", padding: "10px", fontWeight: "bold", color: "#555" }}>
-                                    No expense is available
-                                </td>
-                            </tr>
-                        )}
-                    </tbody>
+    {filteredExpenses && filteredExpenses.length > 0 ? (
+        filteredExpenses.map((expense, index) => (
+            <tr key={expense._id || index}>
+                <td>{formatDate(expense.date)}</td>
+                <td>{expense.category}</td>
+                <td>{expense.amount}</td>
+                <td>
+                    {expense.description}
+                </td>
+                <button className="delete_expense-btn"
+                        onClick={() => handledelete(expense._id)}
+                        title="Delete this expense">
+                        🗑️
+                    </button>
+
+            </tr>
+        ))
+    ) : (
+        <tr>
+            <td colSpan="4" style={{ textAlign: "center", padding: "10px", fontWeight: "bold", color: "#555" }}>
+                No expense is available
+            </td>
+        </tr>
+    )}
+</tbody>
+
                 </table>
             </main>
         </div>

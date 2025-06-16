@@ -64,7 +64,39 @@ const getExpenses = async (req, res) => {
     }
 }
 
+const deleteExpense = async (req, res) => {
+    const userId = req.user?.id;
+    const expenseId = req.params.expense_id;
+
+    try {
+        // Step 1: Find the expense first
+        const expense = await Expense.findOne({ _id: expenseId, userId });
+        if (!expense) {
+            return res.status(404).json({ error: "Expense not found" });
+        }
+
+        const { category, amount } = expense;
+
+        // Step 2: Update budget's availableAmount
+        const budget = await Budget.findOne({ userId, category });
+        if (budget) {
+            budget.availableAmount += amount;
+            await budget.save();
+        }
+
+        // Step 3: Delete the expense
+        await Expense.deleteOne({ _id: expenseId });
+
+        return res.status(200).json({ message: "Expense deleted successfully",updatedBudget: budget, });
+    } catch (error) {
+        console.error("Error deleting expense:", error);
+        return res.status(500).json({ error: "Server error" });
+    }
+};
+
+
 module.exports = {
     addExpense,
-    getExpenses
+    getExpenses,
+    deleteExpense
 };
