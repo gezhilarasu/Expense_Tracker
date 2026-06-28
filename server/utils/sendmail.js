@@ -36,22 +36,13 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,         // false because we're using port 587
-    requireTLS: true,
-
+    host: "smtp-relay.brevo.com",
+    port: 587,
+    secure: false,
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
     },
-
-    connectionTimeout: 30000,
-    greetingTimeout: 30000,
-    socketTimeout: 30000,
-
-    logger: true,
-    debug: true,
 });
 
 const sendMail = async (to, subject, text) => {
@@ -65,7 +56,7 @@ const sendMail = async (to, subject, text) => {
         console.log("✅ SMTP Server Connected");
 
         const mailOptions = {
-            from: process.env.EMAIL_USER,
+            from: '"Expense Tracker" <gezhil24@gmail.com>',
             to,
             subject,
             text,
