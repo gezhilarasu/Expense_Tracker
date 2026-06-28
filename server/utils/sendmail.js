@@ -1,6 +1,4 @@
-const nodemailer = require('nodemailer');
-const dotenv = require('dotenv');
-dotenv.config();
+
 /*
 // Export the function directly, not as an object with a property
 const sendMail = async (to, subject, text) => {
