@@ -51,9 +51,7 @@ const sendMail = async (to, subject, text) => {
         console.log("EMAIL_USER:", process.env.EMAIL_USER);
         console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "Loaded" : "Missing");
 
-        // Verify SMTP connection before sending
-        await transporter.verify();
-        console.log("✅ SMTP Server Connected");
+        
 
         const mailOptions = {
             from: '"Expense Tracker" <gezhil24@gmail.com>',
